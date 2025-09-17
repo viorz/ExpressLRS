@@ -8,6 +8,8 @@
 #include "SX127xDriver.h"
 #elif defined(RADIO_LR1121)
 #include "LR1121Driver.h"
+#elif defined(RADIO_SX1262)
+#include "SX1262Driver.h"
 #elif defined(RADIO_SX128X)
 #include "SX1280Driver.h"
 #else
@@ -119,6 +121,7 @@ typedef enum : uint8_t
 
 enum {
     RADIO_TYPE_SX127x_LORA,
+    RADIO_TYPE_SX1262_LORA,
     RADIO_TYPE_LR1121_LORA_900,
     RADIO_TYPE_LR1121_LORA_2G4,
     RADIO_TYPE_LR1121_GFSK_900,
