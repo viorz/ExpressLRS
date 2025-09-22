@@ -22,6 +22,7 @@ class RegulatoryDomain(Enum):
     us_433_wide = 'us_433_wide'
     eu_433 = 'eu_433'
     au_433 = 'au_433'
+    us_315 = 'us_315'
     in_866 = 'in_866'
     eu_868 = 'eu_868'
     au_915 = 'au_915'
@@ -66,6 +67,8 @@ def domain_number(domain):
         return 6
     elif domain == RegulatoryDomain.us_433_wide:
         return 7
+    elif domain == RegulatoryDomain.us_315:
+        return 8
 
 def patch_unified(args, options):
     json_flags = {}

@@ -123,10 +123,10 @@ def appendConfiguration(source, target, env):
     frequency = ''
     if config is not None:
         moduletype = 'tx' if '.tx_' in config else 'rx'
-        frequency = '2400' if '_2400.' in config else '900' if '_900.' in config else 'dual'
+        frequency = '2400' if '_2400.' in config else '900' if '_900.' in config else '315' if '_315.' in config else 'dual'
     else:
         moduletype = 'tx' if '_TX_' in target_name else 'rx'
-        frequency = '2400' if '_2400_' in target_name else '900' if '_900_' in target_name else 'dual'
+        frequency = '2400' if '_2400_' in target_name else '900' if '_900_' in target_name else '315' if '_315_' in target_name else 'dual'
 
     if env.get('PIOPLATFORM', '') == 'espressif32':
         platform = 'esp32'

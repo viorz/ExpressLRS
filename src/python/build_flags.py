@@ -152,7 +152,7 @@ if '-DRADIO_LR1121=1' in build_flags:
     if fnmatch.filter(build_flags, '*-DRegulatory_Domain_EU_CE_2400'):
         print_error('Regulatory_Domain_EU_CE_2400 not compatible with RADIO_LR1121')
 
-if '-DRADIO_SX127X=1' in build_flags or '-DRADIO_LR1121=1' in build_flags:
+if '-DRADIO_SX127X=1' in build_flags or '-DRADIO_LR1121=1' in build_flags or '-DRADIO_SX1262=1' in build_flags:
     # require a domain be set for 900
     if not fnmatch.filter(build_flags, '*-DRegulatory_Domain*'):
         print_error('Please define a Regulatory_Domain in user_defines.txt')
@@ -173,6 +173,8 @@ if '-DRADIO_SX127X=1' in build_flags or '-DRADIO_LR1121=1' in build_flags:
         json_flags['domain'] = 6
     if fnmatch.filter(build_flags, '*-DRegulatory_Domain_US_433_WIDE'):
         json_flags['domain'] = 7
+    if fnmatch.filter(build_flags, '*-DRegulatory_Domain_US_315'):
+        json_flags['domain'] = 8
 else:
     json_flags['domain'] = 0
 

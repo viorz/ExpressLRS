@@ -75,6 +75,15 @@ static const char *rate_string[] = {
     "DK500",
     "K1000Full",
 };
+#elif defined(RADIO_SX1262)
+static const char *rate_string[] = {
+    "200Hz",
+    "100 Full",
+    "100Hz",
+    "50Hz",
+    "25Hz",
+    "D50Hz"
+};
 #else
 static const char *rate_string[] = {
     "200Hz",
