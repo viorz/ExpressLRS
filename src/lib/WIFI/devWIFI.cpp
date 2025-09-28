@@ -563,6 +563,10 @@ static void WebUpdateGetTarget(AsyncWebServerRequest *request)
   json["radio-type"] = "SX127X";
   json["has-sub-ghz"] = true;
 #endif
+#if defined(RADIO_SX1262)
+  json["radio-type"] = "SX1262";
+  json["has-sub-ghz"] = true;
+#endif
 #if defined(RADIO_LR1121)
   json["radio-type"] = "LR1121";
   json["has-sub-ghz"] = true;
@@ -887,7 +891,7 @@ static void HandleContinuousWave(AsyncWebServerRequest *request) {
     Radio.startCWTest(setSubGHz ? FHSSconfig->freq_center : FHSSconfigDualBand->freq_center, radio);
 #else
     Radio.startCWTest(FHSSconfig->freq_center, radio);
-#if defined(RADIO_SX127X)
+#if defined(RADIO_SX127X) || defined(RADIO_SX1262)
     deferExecutionMillis(50, [radio](){ Radio.cwRepeat(radio); });
 #endif
 #endif

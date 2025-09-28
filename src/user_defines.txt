@@ -1,4 +1,4 @@
 -DMY_BINDING_PHRASE="huemae"
--DRegulatory_Domain_FCC_915
+-DRegulatory_Domain_US_315
 -DAUTO_WIFI_ON_INTERVAL="60"
 -DLOCK_ON_FIRST_CONNECTION

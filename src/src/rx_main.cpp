@@ -396,7 +396,7 @@ bool ICACHE_RAM_ATTR HandleFHSS()
         Radio.SetFrequencyReg(FHSSgetNextFreq());
     }
 
-#if defined(RADIO_SX127X)
+#if defined(RADIO_SX127X) || defined(RADIO_SX1262)
     // SX127x radio has to reset receive mode after hopping
     uint8_t modresultTLM = (OtaNonce + 1) % ExpressLRS_currTlmDenom;
     if (modresultTLM != 0 || ExpressLRS_currTlmDenom == 1) // if we are about to send a tlm response don't bother going back to rx
@@ -1227,7 +1227,7 @@ bool ICACHE_RAM_ATTR ProcessRFPacket(SX12xxDriverCommon::rx_status const status)
     // Adjusts FreqCorrection for RX freq offset
     if (Radio.FrequencyErrorAvailable())
     {
-    #if defined(RADIO_SX127X)
+    #if defined(RADIO_SX127X) || defined(RADIO_SX1262)
         int32_t tempFreqCorrection = HandleFreqCorr(Radio.GetFrequencyErrorbool(Radio.GetProcessingPacketRadio()), Radio.GetProcessingPacketRadio());
         // Teamp900 also needs to adjust its demood PPM
         Radio.SetPPMoffsetReg(tempFreqCorrection, Radio.GetProcessingPacketRadio());
@@ -1691,7 +1691,7 @@ static void setupBindingFromConfig()
 static void setupRadio()
 {
     Radio.currFreq = FHSSgetInitialFreq();
-#if defined(RADIO_SX127X)
+#if defined(RADIO_SX127X) || defined(RADIO_SX1262)
     //Radio.currSyncWord = UID[3];
 #endif
     bool init_success = Radio.Begin(FHSSgetMinimumFreq(), FHSSgetMaximumFreq());

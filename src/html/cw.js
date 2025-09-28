@@ -23,6 +23,11 @@ function updateParams(data) {
   warn_offset = 100000;
   bad_offset = 125000;
 @@end
+@@if chip == 'SX1262':
+  xtalNominal = 32000000;
+  warn_offset = 100000;
+  bad_offset = 125000;
+@@end
 @@if chip == 'LR1121':
   xtalNominal = 32000000;
   warn_offset = 100000;

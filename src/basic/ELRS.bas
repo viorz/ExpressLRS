@@ -123,6 +123,12 @@ if init = 0
    validAirRates128[3] = 1
    validAirRates128[4] = 0
 
+   rem -- 315 MHz (SX1262) '200 Hz'
+   validAirRates1262[0] = 6
+   validAirRates1262[1] = 5
+   validAirRates1262[2] = 4
+   validAirRates1262[3] = 2
+
    band24GHz = 0
    nValidAirRates = kNSX127Rates
 

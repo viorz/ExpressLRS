@@ -17,6 +17,8 @@
 
 #if defined(RADIO_SX127X)
 extern SX127xDriver Radio;
+#elif defined(RADIO_SX1262)
+extern SX1262Driver Radio;
 #elif defined(RADIO_SX128X)
 extern SX1280Driver Radio;
 #endif

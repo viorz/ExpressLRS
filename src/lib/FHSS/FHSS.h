@@ -3,7 +3,7 @@
 #include "targets.h"
 #include "random.h"
 
-#if defined(RADIO_SX127X)
+#if defined(RADIO_SX127X) || defined(RADIO_SX1262)
 #define FreqCorrectionMax ((int32_t)(100000/FREQ_STEP))
 #elif defined(RADIO_LR1121)
 #define FreqCorrectionMax ((int32_t)(100000/FREQ_STEP)) // TODO - This needs checking !!!

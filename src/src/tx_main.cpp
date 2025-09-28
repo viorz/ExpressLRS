@@ -1420,7 +1420,7 @@ void setup()
     config.Load(); // Load the stored values from eeprom
 
     Radio.currFreq = FHSSgetInitialFreq(); //set frequency first or an error will occur!!!
-    #if defined(RADIO_SX127X)
+    #if defined(RADIO_SX127X) || defined(RADIO_SX1262)
     //Radio.currSyncWord = UID[3];
     #endif
     bool init_success;

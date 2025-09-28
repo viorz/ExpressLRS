@@ -47,6 +47,9 @@ def generateUID(phrase):
 def FREQ_HZ_TO_REG_VAL_SX127X(freq):
     return int(freq/61.03515625)
 
+def FREQ_HZ_TO_REG_VAL_SX1262(freq):
+    return int(freq/61.03515625)
+
 def FREQ_HZ_TO_REG_VAL_SX1280(freq):
     return int(freq/(52000000.0/pow(2,18)))
 
@@ -108,7 +111,7 @@ def patch_unified(args, options):
         JSONEncoder().encode(json_flags),
         args.target,
         'tx' if options.deviceType is DeviceType.TX else 'rx',
-        '2400' if options.radioChip is RadioType.SX1280 else '900' if options.radioChip is RadioType.SX127X else 'dual',
+        '2400' if options.radioChip is RadioType.SX1280 else '900' if options.radioChip is RadioType.SX127X else '315' if options.radioChip is RadioType.SX1262 else 'dual',
         '32' if options.mcuType is MCUType.ESP32 and options.deviceType is DeviceType.RX else '',
         options.luaName,
         args.rx_as_tx
@@ -259,7 +262,7 @@ def main():
         options = FirmwareOptions(
             MCUType.ESP32 if config['platform'].startswith('esp32') else MCUType.ESP8266,
             DeviceType.RX if '.rx_' in args.target else DeviceType.TX,
-            RadioType.SX127X if '_900.' in args.target else RadioType.SX1280 if '_2400.' in args.target else RadioType.LR1121,
+            RadioType.SX127X if '_900.' in args.target else RadioType.SX1280 if '_2400.' in args.target else RadioType.SX1262 if '_433.' in args.target else RadioType.LR1121 if '_315.' in args.target else RadioType.SX1262,
             config['lua_name'] if 'lua_name' in config else '',
             config['stlink']['bootloader'] if 'stlink' in config else '',
             config['stlink']['offset'] if 'stlink' in config else 0,

@@ -42,7 +42,7 @@ template<class T> static const uint32_t Model_to_U32(T const * const model)
 
 static uint8_t RateV6toV7(uint8_t rateV6)
 {
-#if defined(RADIO_SX127X) || defined(RADIO_LR1121)
+#if defined(RADIO_SX127X) || defined(RADIO_LR1121) || defined(RADIO_SX1262)
     if (rateV6 == 0)
     {
         // 200Hz stays same

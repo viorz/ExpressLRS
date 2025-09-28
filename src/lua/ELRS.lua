@@ -26,6 +26,11 @@ local SX127x_RATES = {
     values = {0x06, 0x05, 0x04, 0x02},
     rates = { 25, 50, 100, 200 },
 }
+local SX1262_RATES = {
+    list = {'25Hz(-123dbm)', '50Hz(-120dbm)', '100Hz(-117dbm)', '200Hz(-112dbm)'},
+    values = {0x06, 0x05, 0x04, 0x02},
+    rates = { 25, 50, 100, 200 },
+}
 local SX128x_RATES = {
     list = {'50Hz(-117dbm)', '150Hz(-112dbm)', '250Hz(-108dbm)', '500Hz(-105dbm)'},
     values = {0x05, 0x03, 0x01, 0x00},
